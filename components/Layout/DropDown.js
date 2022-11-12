@@ -40,7 +40,7 @@ function DropDown({ pathname, closeDropdown }) {
                     }`}
                     onClick={() => {
                       toggleSubMenu(null);
-                      closeDropdown();
+                      // closeDropdown();
                     }}
                   >
                     {navLink.name}
@@ -79,7 +79,7 @@ function DropDown({ pathname, closeDropdown }) {
                           }`}
                           onClick={() => {
                             toggleSubMenu(null);
-                            closeDropdown();
+                            // closeDropdown();
                           }}
                         >
                           {subLink.name}

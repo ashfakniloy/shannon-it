@@ -1,14 +1,14 @@
 import { StaggerDownFade, StaggerParent } from "../animations/scroll";
 import ImageGrid from "../components/common/ImageGrid";
-import { productList } from "../data/productList";
+import { servicesAllList } from "../data/servicesAllList";
 
-function GalleryPage() {
+function ServicesPage() {
   return (
     <div className="bg-white">
       <div className="lg:container py-20 px-4 lg:py-32">
         <StaggerParent>
           <div className="lg:container py-16 lg:px-4 grid lg:grid-cols-3 gap-6">
-            {productList.map((product, i) => (
+            {servicesAllList.map((product, i) => (
               <div key={i}>
                 <StaggerDownFade>
                   <ImageGrid
@@ -26,12 +26,12 @@ function GalleryPage() {
   );
 }
 
-GalleryPage.pageDetails = {
-  title: "Gallery",
-  description: "Gallery",
-  keywords: "Gallery",
+ServicesPage.pageDetails = {
+  title: "Services",
+  description: "Services",
+  keywords: "Services",
   text: "There's a template for everything",
-  heading: "Gallery",
+  heading: "Services",
 };
 
-export default GalleryPage;
+export default ServicesPage;

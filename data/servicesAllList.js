@@ -1,4 +1,4 @@
-export const productList = [
+export const servicesAllList = [
   { id: 1, name: "cloud computing", img: "/images/products/cloud comp1.png" },
   {
     id: 2,

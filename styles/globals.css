@@ -5,7 +5,8 @@
 @layer base {
   html,
   body {
-    @apply p-0 m-0 bg-white font-Poppins text-[15px] lg:text-base;
+    @apply p-0 m-0 bg-white font-Poppins text-[15px] lg:text-base
+    /* scroll-smooth; */;
   }
 
   .heading-xl {

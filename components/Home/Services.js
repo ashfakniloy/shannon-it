@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ImageGrid from "../common/ImageGrid";
-import { productList } from "../../data/productList";
+import { servicesAllList } from "../../data/servicesAllList";
 import {
   ScaleFade,
   SlideTopFade,
@@ -8,8 +8,8 @@ import {
   StaggerParent,
 } from "../../animations/scroll";
 
-function Products() {
-  const products = productList.slice(0, 6);
+function Services() {
+  const services = servicesAllList.slice(0, 6);
 
   return (
     <div className="bg-white">
@@ -25,7 +25,7 @@ function Products() {
 
         <StaggerParent>
           <div className="lg:container py-16 px-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {products.map((product, i) => (
+            {services.map((product, i) => (
               <div key={i}>
                 <StaggerDownFade>
                   <ImageGrid
@@ -41,7 +41,7 @@ function Products() {
 
         <div className="flex justify-center mt-5">
           <ScaleFade>
-            <Link href="/gallery" passHref>
+            <Link href="/services" passHref>
               <button className="px-10 lg:px-16 py-3 lg:py-4 bg-white hover:bg-custom-gray text-custom-gray hover:text-white duration-300 text-sm border-2 border-slate-300 hover:border-custom-gray font-Montserrat rounded-full uppercase">
                 see more
               </button>
@@ -53,4 +53,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Services;

@@ -2,7 +2,7 @@ import { useState, useEffect, useId } from "react";
 
 import Link from "next/link";
 // import Image from "next/image";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import DropDown from "./DropDown";
 import { navLinks } from "./navLinks";
 import { motion, AnimatePresence } from "framer-motion";
@@ -78,6 +78,10 @@ function Header() {
     }
   };
 
+  Router.events.on("routeChangeStart", (url) => {
+    setToggle(false);
+  });
+
   return (
     <div className="fixed w-full z-30">
       <div
@@ -138,6 +142,17 @@ function Header() {
                           <div className={activeLinkBorder(navLink.link)}></div>
                         </div>
                       )}
+
+                      {/* for smooth scrolling */}
+                      {/* {pathname === navLink.link && (
+                        <motion.div
+                          layoutId={uId}
+                          transition={{ duration: 0.2, ease: "easeOut" }}
+                          className="relative"
+                        >
+                          <div className={activeLinkBorder(navLink.link)}></div>
+                        </motion.div>
+                      )} */}
                     </div>
                   ) : (
                     <div
@@ -161,6 +176,17 @@ function Header() {
                             <div className={activeSubLinkBorder(navLink)}></div>
                           </div>
                         )}
+
+                        {/* for smooth scrolling */}
+                        {/* {checkSubLinkActive(navLink) && (
+                          <motion.div
+                            layoutId={uId}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                            className="relative"
+                          >
+                            <div className={activeSubLinkBorder(navLink)}></div>
+                          </motion.div>
+                        )} */}
                       </div>
 
                       <AnimatePresence>
@@ -203,7 +229,7 @@ function Header() {
           <HeightResize>
             <DropDown
               pathname={pathname}
-              closeDropdown={() => setToggle(false)}
+              // closeDropdown={() => setToggle(false)}
             />
           </HeightResize>
         )}
