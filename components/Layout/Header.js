@@ -15,6 +15,10 @@ function Header() {
   const [showSubMenu, setShowSubMenu] = useState("");
   const uId = useId();
 
+  Router.events.on("routeChangeStart", (url) => {
+    setToggle(false);
+  });
+
   const { pathname, asPath } = useRouter();
 
   // useEffect(() => {
@@ -77,10 +81,6 @@ function Header() {
       return "";
     }
   };
-
-  Router.events.on("routeChangeStart", (url) => {
-    setToggle(false);
-  });
 
   return (
     <div className="fixed w-full z-30">

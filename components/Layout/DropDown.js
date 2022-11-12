@@ -5,7 +5,7 @@ import { navLinks } from "./navLinks";
 import { AnimatePresence } from "framer-motion";
 import { HeightResize } from "../../animations/height";
 
-function DropDown({ pathname, closeDropdown }) {
+function DropDown({ pathname }) {
   const [showSubMenu, setShowSubMenu] = useState("");
 
   const toggleSubMenu = (index) => {
@@ -38,10 +38,9 @@ function DropDown({ pathname, closeDropdown }) {
                         ? "text-custom-orange bg-slate-200"
                         : ""
                     }`}
-                    onClick={() => {
-                      toggleSubMenu(null);
-                      // closeDropdown();
-                    }}
+                    // onClick={() => {
+                    //   toggleSubMenu(null)
+                    // }}
                   >
                     {navLink.name}
                   </p>
@@ -77,10 +76,9 @@ function DropDown({ pathname, closeDropdown }) {
                               ? "text-custom-orange bg-slate-200/80"
                               : ""
                           }`}
-                          onClick={() => {
-                            toggleSubMenu(null);
-                            // closeDropdown();
-                          }}
+                          // onClick={() => {
+                          //   toggleSubMenu(null);
+                          // }}
                         >
                           {subLink.name}
                         </p>
