@@ -38,6 +38,10 @@
   }
 }
 
+/* .clip {
+  clip-path: polygon(6% 0, 100% 0%, 100% 100%, 0% 100%);
+} */
+
 /* .line-indicator li {
   @apply bg-slate-200 hover:bg-slate-300  rounded-full;
 }

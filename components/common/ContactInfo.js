@@ -42,7 +42,7 @@ function ContactInfo() {
 
   const validate = Yup.object({
     name: Yup.string().required("Name is required"),
-    email: Yup.string().required("Email is required"),
+    email: Yup.string().required("Email is required").email("Invalid Email"),
     number: Yup.string().required("Number is required"),
     message: Yup.string().required("Message is required"),
   });
@@ -127,24 +127,16 @@ function ContactInfo() {
               >
                 {(formik) => (
                   <Form>
-                    <div className="mt-3 flex flex-col items-center text-sm text-custom-gray3">
+                    <div className="mt-3 space-y-11 lg:px-10">
+                      <TextField label="Your Name *" name="name" type="text" />
+                      <TextField label="Email *" name="email" type="text" />
                       <TextField
-                        placeholder="Your Name *"
-                        name="name"
-                        type="text"
-                      />
-                      <TextField
-                        placeholder="Email *"
-                        name="email"
-                        type="text"
-                      />
-                      <TextField
-                        placeholder="Phone Number *"
+                        label="Phone Number *"
                         name="number"
                         type="text"
                       />
                       <TextField
-                        placeholder="Service You Are Looking For *"
+                        label="Service You Are Looking For *"
                         name="message"
                         type="text"
                         as="textarea"
@@ -153,13 +145,14 @@ function ContactInfo() {
 
                       <button
                         type="submit"
-                        className="mt-7 lg:mt-9 bg-custom-orange text-white px-5 lg:px-8 py-3 rounded-full uppercase disabled:opacity-60 disabled:cursor-wait"
-                        disabled={formik.isSubmitting}
+                        className="mt-5 flex mx-auto bg-custom-orange active:bg-orange-600 text-white px-5 lg:px-8 py-3 rounded-full uppercase disabled:bg-opacity-60 disabled:cursor-wait"
+                        // disabled={formik.isSubmitting}
                         aria-label="send message"
                       >
-                        {formik.isSubmitting
+                        Send Message
+                        {/* {formik.isSubmitting
                           ? "sending message"
-                          : "send message"}
+                          : "send message"} */}
                       </button>
                     </div>
                   </Form>

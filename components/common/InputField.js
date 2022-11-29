@@ -1,13 +1,21 @@
 import Image from "next/image";
 import { ErrorMessage, Field } from "formik";
 
-export const TextField = ({ ...props }) => {
+export const TextField = ({ label, ...props }) => {
   return (
-    <div className="my-3 relative">
+    <div className="my-[22px] relative">
       <Field
-        className="w-[250px] lg:w-[360px] outline-none py-2 border-b-2 border-gray-300 focus:border-red-500"
+        id={label}
+        className="peer placeholder-transparent placeholder:select-none w-full outline-none py-2 border-b-2 border-gray-300 focus:border-red-500 text-custom-gray3"
+        placeholder={label}
         {...props}
       />
+      <label
+        htmlFor={label}
+        className="absolute select-none left-0 -top-3.5 text-xs text-gray-600 transition-all  cursor-text peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:cursor-default"
+      >
+        {label}
+      </label>
       <p className="absolute -bottom-4 text-red-500 text-xs">
         <ErrorMessage {...props} />
       </p>
