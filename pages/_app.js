@@ -5,6 +5,7 @@ import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MotionConfig } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 
 function MyApp({ Component, pageProps }) {
   const scrollAnimationConfig = {
@@ -13,15 +14,18 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <ParallaxProvider>
-      <MotionConfig {...scrollAnimationConfig}>
-        <Layout pageDetails={Component.pageDetails && Component.pageDetails}>
-          <PageFade>
-            <Component {...pageProps} />
-          </PageFade>
-        </Layout>
-      </MotionConfig>
-    </ParallaxProvider>
+    <>
+      <ParallaxProvider>
+        <MotionConfig {...scrollAnimationConfig}>
+          <Layout pageDetails={Component.pageDetails && Component.pageDetails}>
+            <PageFade>
+              <Component {...pageProps} />
+            </PageFade>
+          </Layout>
+        </MotionConfig>
+      </ParallaxProvider>
+      <Analytics />
+    </>
   );
 }
 
