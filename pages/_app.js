@@ -5,7 +5,7 @@ import "../styles/globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MotionConfig } from "framer-motion";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
@@ -29,7 +29,8 @@ function MyApp({ Component, pageProps }) {
           gtag('config', 'G-MM4HB2456E');
         `}
       </Script>
-      <Analytics />
+
+      {/* <Analytics /> */}
 
       <ParallaxProvider>
         <MotionConfig {...scrollAnimationConfig}>
