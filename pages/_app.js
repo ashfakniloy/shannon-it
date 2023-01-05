@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { MotionConfig } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   const scrollAnimationConfig = {
@@ -15,6 +16,21 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-MM4HB2456E"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-MM4HB2456E');
+        `}
+      </Script>
+      <Analytics />
+
       <ParallaxProvider>
         <MotionConfig {...scrollAnimationConfig}>
           <Layout pageDetails={Component.pageDetails && Component.pageDetails}>
@@ -24,7 +40,6 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </MotionConfig>
       </ParallaxProvider>
-      <Analytics />
     </>
   );
 }
