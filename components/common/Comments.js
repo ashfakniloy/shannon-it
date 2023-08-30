@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Slider from "react-slick";
 import { ScaleFade } from "../../animations/scroll";
 import { commentList } from "../../data/commentList";
-import CustomSlider from "../CustomSlider";
+// import CustomSlider from "../CustomSlider";
 
 function Comments() {
   const refSlider = useRef(null);

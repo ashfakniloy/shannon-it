@@ -7,9 +7,6 @@ import Description from "../components/Home/Description";
 import Products from "../components/Home/Services";
 import Comments from "../components/common/Comments";
 import Search from "../components/Home/Search";
-import CustomSlider from "../components/CustomSlider";
-import SliderSwiper from "../components/SliderSwiper";
-// import Image from "next/image";
 
 function Home() {
   return (
@@ -23,17 +20,6 @@ function Home() {
       <Comments />
       <ContactInfo />
       <Search />
-      {/* <div className="bg-red-300 container p-20">
-        
-        <div className="relative w-full h-[600px] clip">
-          <Image
-            src="/images/about/about2.jpg"
-            
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
-      </div> */}
     </>
   );
 }

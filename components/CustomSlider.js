@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
 import { commentList } from "../data/commentList";
 
@@ -16,23 +16,23 @@ function CustomSlider() {
     return Math.abs(offset) * velocity;
   };
 
-  const next = () => {
+  const next = useCallback(() => {
     setDirection(1);
     if (currentSlide === commentList.length - 1) {
       setCurrentSlide(0);
       return;
     }
     setCurrentSlide(currentSlide + 1);
-  };
+  }, [currentSlide]);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     setDirection(-1);
     if (currentSlide === 0) {
       setCurrentSlide(commentList.length - 1);
       return;
     }
     setCurrentSlide(currentSlide - 1);
-  };
+  }, [currentSlide]);
 
   const changeSlide = (i) => {
     if (i < currentSlide) {
